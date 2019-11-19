@@ -29,7 +29,7 @@ def read_params():
     print("loading vocab")
     with open('sl999_wordlist.json', 'r') as f:
         wordlist = json.load(f)
-        print("loading pretrained parameters")
+    print("loading pretrained parameters")
     with open('sl999.emb', 'r') as f:
         params = json.load(f)
     index2word = {}
@@ -37,7 +37,12 @@ def read_params():
     for word in tqdm(wordlist, total=len(wordlist)):
         word2index[word] = len(word2index)
         index2word[len(index2word)] = word
-    return word2index, index2word, params
+
+    print("loading vocab word2index")
+    with open('word2index.json', 'r') as f:
+        voc_word2index = json.load(f)
+    
+    return word2index, index2word, params, voc_word2index
 
 def get_embeddings(voc_word2index, params, word2index):
     k = KazumaCharEmbedding()
@@ -61,7 +66,7 @@ def get_embeddings(voc_word2index, params, word2index):
 if __name__ == "__main__":
     # wordlist, params = read_file()
     # dump_params(wordlist, params)
-    word2index, index2word, params = read_params()
-    get_embeddings(word2index, params, word2index)
+    word2index, index2word, params, voc_word2index = read_params()
+    get_embeddings(voc_word2index, params, word2index)
 
     
