@@ -1,4 +1,4 @@
-#!/slfs1/users/zhx98/py_env/bin/python3.7
+#!/usr/bin
 import sys
 import json
 from tqdm import tqdm
@@ -7,7 +7,7 @@ from embeddings import KazumaCharEmbedding
 UNK = 'UUUNKKK'
 
 def read_file():
-    with open('paragram_300_sl999.txt', 'r', encoding = "ISO-8859-1") as f:
+    with open('./data/paragram_300_sl999.txt', 'r', encoding = "ISO-8859-1") as f:
         lines = f.readlines()
     wordlist = []
     params = []
@@ -20,17 +20,17 @@ def read_file():
 
 def dump_params(wordlist, params):
     print("dumping embedding")
-    with open('sl999_wordlist.json', 'w') as f:
+    with open('./data/sl999_wordlist.json', 'w') as f:
         json.dump(wordlist, f)
-    with open('sl999.emb', 'w') as f:
+    with open('./data/sl999.emb', 'w') as f:
         json.dump(params, f)
 
 def read_params():
     print("loading vocab")
-    with open('sl999_wordlist.json', 'r') as f:
+    with open('./data/sl999_wordlist.json', 'r') as f:
         wordlist = json.load(f)
     print("loading pretrained parameters")
-    with open('sl999.emb', 'r') as f:
+    with open('./data/sl999.emb', 'r') as f:
         params = json.load(f)
     index2word = {}
     word2index = {}
@@ -39,7 +39,7 @@ def read_params():
         index2word[len(index2word)] = word
 
     print("loading vocab word2index")
-    with open('word2index.json', 'r') as f:
+    with open('./data/word2index.json', 'r') as f:
         voc_word2index = json.load(f)
     
     return word2index, index2word, params, voc_word2index
@@ -59,7 +59,7 @@ def get_embeddings(voc_word2index, params, word2index):
         if voc_word == 'PAD':
             print(embed_400d)
     print("dumping")
-    with open('embed_{}.json'.format(str(len(voc_word2index))), 'w') as f:
+    with open('./data/embed_{}.json'.format(str(len(voc_word2index))), 'w') as f:
         json.dump(embed_400d, f)
         
 
