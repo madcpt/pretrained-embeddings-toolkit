@@ -12,6 +12,14 @@ class PretrainedEmbeddings(object):
     def add_pretrained_models(self, models: []):
         self.embedding_models = []
         for model in models:
+            if model == self.supported_models[0]:
+                self.embedding_models.append(FastTextEmbedding())
+            if model == self.supported_models[1]:
+                self.embedding_models.append(GloveEmbedding())
+            if model == self.supported_models[2]:
+                self.embedding_models.append(KazumaCharEmbedding())
+            if model == self.supported_models[3]:
+                self.embedding_models.append(SL999())
             pass
         
     def dump_pretrained_emb(self, word2index, index2word, dump_path):

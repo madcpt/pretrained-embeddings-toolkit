@@ -1,8 +1,8 @@
-#!/usr/bin
 import sys
 import json
 from tqdm import tqdm
 from embeddings import KazumaCharEmbedding
+import yaml
 
 UNK = 'UUUNKKK'
 
@@ -66,7 +66,13 @@ def get_embeddings(voc_word2index, params, word2index):
 if __name__ == "__main__":
     # wordlist, params = read_file()
     # dump_params(wordlist, params)
-    word2index, index2word, params, voc_word2index = read_params()
-    get_embeddings(voc_word2index, params, word2index)
+    # word2index, index2word, params, voc_word2index = read_params()
+    # get_embeddings(voc_word2index, params, word2index)
 
     
+    with open('./config/sl999-config.yaml') as file:
+        # The FullLoader parameter handles the conversion from YAML
+        # scalar values to Python the dictionary format
+        fruits_list = yaml.load(file, Loader=yaml.FullLoader)
+
+        print(fruits_list)
