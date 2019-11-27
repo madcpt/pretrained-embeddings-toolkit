@@ -1,2 +1,9 @@
-# toolkit-sl999
-Toolkit for processing pretrained-embedding SL999.
+# Pretrained-Embedding-ToolKit 
+
+Toolkit for processing pretrained-embeddings.
+
+Currently support:
+ - 'FastText'
+ - 'Glove'
+ - 'KazumaChar'
+ - 'SL999'
