@@ -8,7 +8,13 @@ Currently support:
  - 'KazumaChar'
  - 'SL999'
 
-** Paragram-sl999 vectors **
+## FastTextEmbedding
+
+## GloveEmbedding
+
+## KazumaCharEmbedding
+
+## sl999-Embedding
 
 These are 300 dimensional Paragram embeddings tuned on the SimLex999 dataet. They achieve
 human-level performance on both SimLex999 and WS353 datasets.
