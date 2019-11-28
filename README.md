@@ -21,7 +21,7 @@ human-level performance on both SimLex999 and WS353 datasets.
 
 New! Paragram-SL999 300 dimensional Paragram embeddings tuned on SimLex999 dataset. 1.7 GB download.
 
-[https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view?usp=sharing](paragram\_300\_sl999.txt) : embeddings, each line is an embedding for the token at the
+(https://drive.google.com/file/d/0B9w48e1rj-MOLVdZRzFfTlNsem8/view?usp=sharing)[paragram\_300\_sl999.txt] : embeddings, each line is an embedding for the token at the
                             beginning of the line
 
 If you use our embeddingsfor your work please cite:
